@@ -32,7 +32,57 @@ function App() {
 	};
 
 	const [theme, setTheme] = useState(getSystemTheme);
-	const [currentFile, setCurrentFile] = useState(null); // Mulai dari beranda
+	const [currentFile, setCurrentFile] = useState(null);
+
+	// Initialize state from URL on first load and listen to browser Back/Forward
+	useEffect(() => {
+		const handleUrlChange = () => {
+			const params = new URLSearchParams(window.location.search);
+			const bookId = params.get('buku');
+			if (bookId) {
+				const file = FILE_LIST.find((f) => f.id === bookId);
+				setCurrentFile(file || null);
+			} else {
+				setCurrentFile(null);
+			}
+		};
+
+		// Run once on mount
+		handleUrlChange();
+
+		// Listen for Back/Forward navigation
+		window.addEventListener('popstate', handleUrlChange);
+		return () => window.removeEventListener('popstate', handleUrlChange);
+	}, []);
+
+	const openBook = (file) => {
+		setCurrentFile(file);
+		const newUrl = new URL(window.location);
+		newUrl.searchParams.set('buku', file.id);
+		window.history.pushState({}, '', newUrl);
+
+		// Notify Google Analytics manually if gtag is available
+		if (typeof window.gtag === 'function') {
+			window.gtag('event', 'page_view', {
+				page_location: window.location.href,
+				page_title: file.title,
+			});
+		}
+	};
+
+	const goHome = () => {
+		setCurrentFile(null);
+		const newUrl = new URL(window.location);
+		newUrl.searchParams.delete('buku');
+		window.history.pushState({}, '', newUrl);
+
+		if (typeof window.gtag === 'function') {
+			window.gtag('event', 'page_view', {
+				page_location: window.location.href,
+				page_title: 'Kumpulan Buah Pikir | Rak Buku',
+			});
+		}
+	};
 
 	// Update theme automatically if user changes their system setting
 	useEffect(() => {
@@ -58,7 +108,7 @@ function App() {
 					{currentFile && (
 						<button
 							className='theme-toggle'
-							onClick={() => setCurrentFile(null)}
+							onClick={goHome}
 							title='Kembali ke Beranda'
 						>
 							<svg
@@ -144,8 +194,9 @@ function App() {
 								<div
 									key={file.id}
 									className='library-card'
-									onClick={() => setCurrentFile(file)}
+									onClick={() => openBook(file)}
 								>
+									<div className='book-spine'></div>
 									<div className='book-cover-content'>
 										<h3>{file.title}</h3>
 										<div className='book-divider'></div>
