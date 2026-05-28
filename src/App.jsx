@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import BookViewer from './components/BookViewer';
 import './index.css';
 
@@ -287,6 +288,7 @@ function App() {
 
       {/* Watermark halus di setiap halaman */}
       <div className='watermark'>Buah Pikir oleh @aimeliala</div>
+      <Analytics />
     </div>
   );
 }
