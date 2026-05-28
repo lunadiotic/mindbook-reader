@@ -336,3 +336,21 @@ body {
   opacity: 1;
   pointer-events: auto;
 }
+
+/* Watermark */
+.watermark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2rem, 5vw, 5rem);
+  font-weight: 600;
+  color: var(--text-main); /* Mengikuti mode terang/gelap */
+  opacity: 0.04; /* Sangat transparan agar tidak mengganggu tulisan */
+  pointer-events: none; /* Tidak bisa diklik */
+  z-index: 9999;
+  user-select: none; /* Tidak bisa diblok/copy */
+  white-space: nowrap;
+  letter-spacing: 3px;
+}

@@ -25,7 +25,10 @@ const FILE_LIST = Object.keys(markdownFiles).map((path) => {
 
 function App() {
 	const getSystemTheme = () => {
-		return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+		return window.matchMedia &&
+			window.matchMedia('(prefers-color-scheme: dark)').matches
+			? 'dark'
+			: 'light';
 	};
 
 	const [theme, setTheme] = useState(getSystemTheme);
@@ -157,6 +160,9 @@ function App() {
 					</div>
 				)}
 			</main>
+
+			{/* Watermark halus di setiap halaman */}
+			<div className='watermark'>Buah Pikir @aimeliala</div>
 		</div>
 	);
 }
