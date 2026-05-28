@@ -97,6 +97,33 @@ function App() {
 		document.documentElement.setAttribute('data-theme', theme);
 	}, [theme]);
 
+	// Dynamic SEO & Title Update
+	useEffect(() => {
+		const updateMeta = (selector, content) => {
+			const tag = document.querySelector(selector);
+			if (tag) tag.setAttribute('content', content);
+		};
+
+		if (currentFile) {
+			document.title = `${currentFile.title} | Kumpulan Buah Pikir`;
+			const desc = currentFile.content.substring(0, 160).replace(/[#*_>]/g, '').replace(/\n/g, ' ').trim() + '...';
+			
+			updateMeta('meta[name="description"]', desc);
+			updateMeta('meta[property="og:title"]', currentFile.title);
+			updateMeta('meta[property="og:description"]', desc);
+			updateMeta('meta[property="og:url"]', window.location.href);
+		} else {
+			document.title = 'Kumpulan Buah Pikir | by @aimeliala';
+			const defaultDesc = "Sebuah ruang membaca tulisan dan buah pikir yang dibagikan kepada khalayak umum. Dibuat oleh @aimeliala.";
+			
+			updateMeta('meta[name="description"]', defaultDesc);
+			updateMeta('meta[property="og:title"]', 'Kumpulan Buah Pikir | by @aimeliala');
+			updateMeta('meta[property="og:description"]', defaultDesc);
+			const baseUrl = window.location.origin + window.location.pathname;
+			updateMeta('meta[property="og:url"]', baseUrl);
+		}
+	}, [currentFile]);
+
 	const toggleTheme = () => {
 		setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
 	};
