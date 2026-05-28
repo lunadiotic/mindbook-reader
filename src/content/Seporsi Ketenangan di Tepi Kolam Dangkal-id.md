@@ -1,4 +1,8 @@
-## **Seporsi Ketenangan di Tepi Kolam Dangkal**
+---
+title: Seporsi Ketenangan di Tepi Kolam Dangkal
+---
+
+## Seporsi Ketenangan di Tepi Kolam Dangkal
 
 ### **Bagian 1: Tentang Rasa yang Kita Racik Sendiri**
 
@@ -24,7 +28,7 @@ Namun, ada satu cara sederhana untuk menjalaninya. Bukan dengan langsung menjadi
 
 Mari kita mengingat kembali sebuah cerita tentang seseorang yang sedang belajar berenang untuk pertama kalinya.
 
-Sepanjang perjalanan menuju kolam renang, isi kepalanya sudah tidak karuan. Riuh sekali. Ada ketakutan yang melompat-lompat di sana: *Bagaimana kalau aku tidak bisa? Bagaimana kalau nanti aku tenggelam? Bagaimana kalau aku kehabisan napas dan tidak ada yang menolong?* Rasa takut itu membuat jalanan terasa lebih panjang dan menakutkan.
+Sepanjang perjalanan menuju kolam renang, isi kepalanya sudah tidak karuan. Riuh sekali. Ada ketakutan yang melompat-lompat di sana: _Bagaimana kalau aku tidak bisa? Bagaimana kalau nanti aku tenggelam? Bagaimana kalau aku kehabisan napas dan tidak ada yang menolong?_ Rasa takut itu membuat jalanan terasa lebih panjang dan menakutkan.
 
 Tapi, begitu dia sampai di sana, realitas ternyata tidak sekejam apa yang dibayangkan kepalanya. Kolam renang itu bukan sebuah lautan lepas yang gelap. Di sana ada banyak pilihan. Ada kolam yang sangat dangkal, ada yang luas, bahkan ada air hangat yang disediakan untuk membilas badan.
 
@@ -34,7 +38,7 @@ Dia tidak langsung menyelam. Dia hanya mencoba meluncurkan badannya di atas air 
 
 ### **Bagian 4: Memeluk Tepi Kolam**
 
-Setelah rasa bangga karena bisa meluncur di kolam dangkal itu mekar, muncul sebuah keberanian kecil. Dia mulai penasaran, *bagaimana rasanya jika mencoba kolam yang sedikit lebih dalam?*
+Setelah rasa bangga karena bisa meluncur di kolam dangkal itu mekar, muncul sebuah keberanian kecil. Dia mulai penasaran, _bagaimana rasanya jika mencoba kolam yang sedikit lebih dalam?_
 
 Tentu, dia tidak bodoh dengan langsung berlari dan melompat ke tengah-tengah kolam dalam. Itu bukan berani, itu ceroboh.
 

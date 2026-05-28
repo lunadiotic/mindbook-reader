@@ -82,7 +82,29 @@ body {
 }
 
 .theme-toggle:hover {
-  background-color: var(--border-color);
+  background-color: rgba(128, 128, 128, 0.1);
+}
+
+.lang-toggle {
+  background: none;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.lang-toggle:hover {
+  background-color: rgba(128, 128, 128, 0.1);
+  border-color: var(--text-muted);
 }
 
 /* Book Viewer Area */
