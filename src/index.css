@@ -113,7 +113,7 @@ body {
 /* The core of the column layout */
 .markdown-content {
   height: 100%;
-  padding: 40px var(--padding-side);
+  padding: 40px var(--padding-side) 100px var(--padding-side); /* Tambahan ruang kosong di bawah agar teks tidak tertutup tombol */
   column-width: var(--page-width);
   column-gap: var(--col-gap);
   column-fill: auto;
