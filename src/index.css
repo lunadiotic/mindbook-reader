@@ -12,7 +12,7 @@
   --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
   
   /* Layout constraints */
-  --page-width: clamp(300px, 90vw, 800px);
+  --page-width: min(calc(100vw - 80px), 800px); /* Menghindari overflow di layar yang sangat kecil */
   --padding-side: 40px;
   --col-gap: 80px; /* Must be exactly 2x padding-side for perfect scroll sync */
 }
@@ -95,12 +95,9 @@ body {
 }
 
 .book-viewport {
-  width: 100%;
+  width: 100vw;
   height: calc(100vh - 120px); /* leave space for top/bottom margins */
-  max-width: 1400px; /* Max width for ultra-wide screens */
   overflow-x: auto;
-  overflow-y: hidden;
-  scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   /* Hide scrollbar for cleaner look */
   scrollbar-width: none; 
@@ -113,14 +110,26 @@ body {
 /* The core of the column layout */
 .markdown-content {
   height: 100%;
-  padding: 40px var(--padding-side) 100px var(--padding-side); /* Tambahan ruang kosong di bawah agar teks tidak tertutup tombol */
-  column-width: var(--page-width);
-  column-gap: var(--col-gap);
+  column-width: 100vw; /* Lebar kolom persis selebar layar */
+  column-gap: 0; /* Tidak ada jarak semu antar kolom */
+  padding: 40px 0 120px 0; /* Container tidak punya padding horizontal */
   column-fill: auto;
   font-family: 'Lora', Georgia, serif; /* Serif font for better reading */
   font-size: clamp(1.05rem, 1.2vw + 0.5rem, 1.3rem); /* Fluid typography */
   line-height: 1.8;
   color: var(--text-main);
+}
+
+/* Trik Utama: Padding/Margin diterapkan pada elemen langsung (Responsive!) */
+.markdown-content > * {
+  /* Di HP margin 24px. Di PC margin membesar agar lebar teks maksimal 700px (terpusat) */
+  margin-left: clamp(24px, 50vw - 350px, 50vw);
+  margin-right: clamp(24px, 50vw - 350px, 50vw);
+}
+
+.markdown-content > ul, 
+.markdown-content > ol {
+  padding-left: 24px;
 }
 
 /* Snap points are tricky with purely css columns because they don't create discrete elements.
@@ -173,7 +182,8 @@ body {
 .markdown-content blockquote {
   border-left: 4px solid var(--accent-color);
   padding-left: 20px;
-  margin: 2em 0;
+  margin-top: 2em;
+  margin-bottom: 2em;
   font-style: italic;
   color: var(--text-muted);
   background: rgba(217, 119, 6, 0.05);
@@ -186,7 +196,8 @@ body {
   height: auto;
   border-radius: 8px;
   box-shadow: var(--shadow-sm);
-  margin: 2em auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
   display: block;
 }
 
@@ -204,7 +215,8 @@ body {
   padding: 20px;
   border-radius: 8px;
   overflow-x: auto;
-  margin: 2em 0;
+  margin-top: 2em;
+  margin-bottom: 2em;
   box-shadow: var(--shadow-md);
 }
 
